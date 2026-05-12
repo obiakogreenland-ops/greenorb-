@@ -552,22 +552,22 @@ const Process = () => {
 
         <div className="relative max-w-4xl mx-auto">
           {/* Vertical Line */}
-          <div className="absolute left-1/2 -translate-x-1/2 w-0.5 h-full bg-linear-to-b from-primary to-secondary opacity-30" />
+          <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-0.5 h-full bg-linear-to-b from-primary to-secondary opacity-30" />
           
           <div className="space-y-12">
             {steps.map((step, idx) => (
               <motion.div 
                 key={step.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className={`flex items-center gap-8 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse text-right'}`}
+                className={`flex items-start md:items-center gap-6 md:gap-8 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse md:text-right'}`}
               >
                 <div className={`flex-1 hidden md:block`} />
-                <div className="relative z-10 w-12 h-12 bg-linear-to-br from-primary to-secondary rounded-full flex items-center justify-center font-bold text-xl shadow-[0_0_20px_rgba(99,102,241,0.5)]">
+                <div className="relative z-10 w-16 h-16 md:w-12 md:h-12 shrink-0 bg-linear-to-br from-primary to-secondary rounded-full flex items-center justify-center font-bold text-xl shadow-[0_0_20px_rgba(99,102,241,0.5)]">
                   {idx + 1}
                 </div>
-                <div className="flex-1 glass-card p-8">
+                <div className="flex-4 md:flex-1 glass-card p-6 md:p-8">
                   <h3 className="text-xl font-bold mb-2">{step.title}</h3>
                   <p className="text-sm text-gray-text leading-relaxed">{step.desc}</p>
                 </div>
