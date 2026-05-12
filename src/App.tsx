@@ -30,7 +30,8 @@ import {
   Search,
   Paintbrush,
   Infinity,
-  ArrowRight
+  ArrowRight,
+  Instagram
 } from 'lucide-react';
 import { generateBotResponse } from './lib/ai';
 
@@ -665,7 +666,7 @@ const AIChatbot = () => {
           <p className="text-gray-text max-w-2xl mx-auto">Experience how your customers will interact with your business 24/7.</p>
         </div>
 
-        <div className="max-w-2xl mx-auto glass-card overflow-hidden h-[600px] flex flex-col relative">
+        <div className="max-w-2xl mx-auto glass-card overflow-hidden h-[500px] md:h-[600px] flex flex-col relative">
 
           <div className="bg-primary/10 p-6 flex items-center gap-4 border-b border-primary/20">
             <div className="w-12 h-12 bg-linear-to-br from-primary to-secondary rounded-full flex items-center justify-center text-2xl">🤖</div>
@@ -792,22 +793,44 @@ const HelpSection = () => {
 const CTA = () => {
   return (
     <section className="py-24 px-6 bg-linear-to-b from-dark to-darker">
-      <div className="max-w-4xl mx-auto glass-card p-16 text-center border-primary/30">
-        <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
+      <div className="max-w-4xl mx-auto glass-card p-8 md:p-16 text-center border-primary/30">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
         <p className="text-gray-text text-lg mb-10">
           Get your AI-powered website with WhatsApp integration in 48 hours. Join 50+ Nigerian businesses already using our system.
         </p>
-        <div className="flex flex-col items-center gap-6">
-          <a 
-            href="https://wa.me/2348012345678?text=Hi%20GreenOrb%2C%20I%27m%20interested%20in%20getting%20an%20AI-powered%20website%20for%20my%20business" 
-            target="_blank"
-            className="inline-flex items-center gap-3 bg-[#25D366] text-white px-10 py-5 rounded-2xl font-bold text-xl hover:scale-105 transition-transform shadow-[0_0_30px_rgba(37,211,102,0.3)]"
-          >
-            <MessageSquare size={28} /> Chat on WhatsApp
-          </a>
-          <p className="text-sm text-gray-text">
-            Or email us at <a href="mailto:hello@greenorb.agency" className="text-primary hover:underline">hello@greenorb.agency</a>
-          </p>
+        <div className="flex flex-col items-center gap-8">
+          <div className="flex flex-col md:flex-row gap-4 w-full justify-center">
+            <a 
+              href="https://wa.me/2348115106084?text=Hi%20GreenOrb%2C%20I%27m%20interested%20in%20getting%20an%20AI-powered%20website%20for%20my%20business" 
+              target="_blank"
+              rel="noreferrer"
+              className="flex-1 inline-flex items-center justify-center gap-3 bg-[#25D366] text-white px-6 py-4 rounded-2xl font-bold text-lg hover:scale-105 transition-transform shadow-[0_0_20px_rgba(37,211,102,0.2)]"
+            >
+              <MessageSquare size={24} /> Chat Admin 1
+            </a>
+            <a 
+              href="https://wa.me/2349123879116?text=Hi%20GreenOrb%2C%20I%27m%20interested%20in%20getting%20an%20AI-powered%20website%20for%20my%20business" 
+              target="_blank"
+              rel="noreferrer"
+              className="flex-1 inline-flex items-center justify-center gap-3 bg-[#25D366] text-white px-6 py-4 rounded-2xl font-bold text-lg hover:scale-105 transition-transform shadow-[0_0_20px_rgba(37,211,102,0.2)]"
+            >
+              <MessageSquare size={24} /> Chat Admin 2
+            </a>
+          </div>
+          
+          <div className="flex flex-col items-center gap-4">
+            <a 
+              href="https://www.instagram.com/peterobiako1?igsh=MTJtemx5amdlOWtucA==" 
+              target="_blank" 
+              rel="noreferrer"
+              className="inline-flex items-center gap-3 text-light hover:text-primary transition-colors font-bold text-lg"
+            >
+              <Instagram size={24} className="text-secondary" /> @peterobiako1
+            </a>
+            <p className="text-sm text-gray-text">
+              Or email us at <a href="mailto:peterobiako1@gmail.com" className="text-primary hover:underline">peterobiako1@gmail.com</a>
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -819,11 +842,10 @@ const Footer = () => {
     <footer className="py-12 border-t border-light/5 text-center px-6">
       <p className="text-gray-text mb-2">© 2026 GreenOrb Agency. Built with AI for Nigerian businesses.</p>
       <p className="text-xs text-gray-text/50 mb-8">No coding required. Deploy in 48 hours.</p>
-      <div className="flex justify-center gap-6 text-gray-text">
-        <a href="#" className="hover:text-primary"><Smartphone size={20} /></a>
-        <a href="#" className="hover:text-primary"><Globe size={20} /></a>
-        <a href="#" className="hover:text-primary"><Users size={20} /></a>
-        <a href="#" className="hover:text-primary"><MessageSquare size={20} /></a>
+      <div className="flex justify-center gap-8 text-gray-text">
+        <a href="https://wa.me/2348115106084" target="_blank" rel="noreferrer" className="hover:text-[#25D366] transition-colors"><MessageSquare size={24} /></a>
+        <a href="https://www.instagram.com/peterobiako1?igsh=MTJtemx5amdlOWtucA==" target="_blank" rel="noreferrer" className="hover:text-secondary transition-colors"><Instagram size={24} /></a>
+        <a href="mailto:peterobiako1@gmail.com" className="hover:text-primary transition-colors"><Send size={24} /></a>
       </div>
     </footer>
   );

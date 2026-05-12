@@ -1,11 +1,11 @@
 import { GoogleGenAI } from "@google/genai";
 
 const API_KEY = process.env.GEMINI_API_KEY;
-const ai = API_KEY ? new GoogleGenAI({ apiKey: API_KEY }) : null;
+const ai = API_KEY && API_KEY !== "MY_GEMINI_API_KEY" && API_KEY !== "" ? new GoogleGenAI({ apiKey: API_KEY }) : null;
 
 export const generateBotResponse = async (userMessage: string, businessType: string) => {
   if (!ai) {
-    return "I'm currently in demo mode. To enable real AI responses, please configure the GEMINI_API_KEY.";
+    return "I'm currently in demo mode. To activate the AI assistant on your live site, please ensure the GEMINI_API_KEY is correctly set in your Netlify environment variables and redeploy the site.";
   }
 
   try {
@@ -30,7 +30,7 @@ export const generateBotResponse = async (userMessage: string, businessType: str
     Reply in a conversational way.`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-2.0-flash",
       contents: prompt,
     });
 
