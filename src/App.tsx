@@ -567,7 +567,7 @@ const Process = () => {
                 <div className="relative z-10 w-16 h-16 md:w-12 md:h-12 shrink-0 bg-linear-to-br from-primary to-secondary rounded-full flex items-center justify-center font-bold text-xl shadow-[0_0_20px_rgba(99,102,241,0.5)]">
                   {idx + 1}
                 </div>
-                <div className="flex-4 md:flex-1 glass-card p-6 md:p-8">
+                <div className="flex-1 glass-card p-6 md:p-8">
                   <h3 className="text-xl font-bold mb-2">{step.title}</h3>
                   <p className="text-sm text-gray-text leading-relaxed">{step.desc}</p>
                 </div>
@@ -803,7 +803,7 @@ const CTA = () => {
             <a 
               href="https://wa.me/2348115106084?text=Hi%20GreenOrb%2C%20I%27m%20interested%20in%20getting%20an%20AI-powered%20website%20for%20my%20business" 
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="flex-1 inline-flex items-center justify-center gap-3 bg-[#25D366] text-white px-6 py-4 rounded-2xl font-bold text-lg hover:scale-105 transition-transform shadow-[0_0_20px_rgba(37,211,102,0.2)]"
             >
               <MessageSquare size={24} /> Chat Admin 1
@@ -811,7 +811,7 @@ const CTA = () => {
             <a 
               href="https://wa.me/2349123879116?text=Hi%20GreenOrb%2C%20I%27m%20interested%20in%20getting%20an%20AI-powered%20website%20for%20my%20business" 
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="flex-1 inline-flex items-center justify-center gap-3 bg-[#25D366] text-white px-6 py-4 rounded-2xl font-bold text-lg hover:scale-105 transition-transform shadow-[0_0_20px_rgba(37,211,102,0.2)]"
             >
               <MessageSquare size={24} /> Chat Admin 2
@@ -822,7 +822,7 @@ const CTA = () => {
             <a 
               href="https://www.instagram.com/peterobiako1?igsh=MTJtemx5amdlOWtucA==" 
               target="_blank" 
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 text-light hover:text-primary transition-colors font-bold text-lg"
             >
               <Instagram size={24} className="text-secondary" /> @peterobiako1
@@ -843,8 +843,8 @@ const Footer = () => {
       <p className="text-gray-text mb-2">© 2026 GreenOrb Agency. Built with AI for Nigerian businesses.</p>
       <p className="text-xs text-gray-text/50 mb-8">No coding required. Deploy in 48 hours.</p>
       <div className="flex justify-center gap-8 text-gray-text">
-        <a href="https://wa.me/2348115106084" target="_blank" rel="noreferrer" className="hover:text-[#25D366] transition-colors"><MessageSquare size={24} /></a>
-        <a href="https://www.instagram.com/peterobiako1?igsh=MTJtemx5amdlOWtucA==" target="_blank" rel="noreferrer" className="hover:text-secondary transition-colors"><Instagram size={24} /></a>
+        <a href="https://wa.me/2348115106084" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors"><MessageSquare size={24} /></a>
+        <a href="https://www.instagram.com/peterobiako1?igsh=MTJtemx5amdlOWtucA==" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors"><Instagram size={24} /></a>
         <a href="mailto:peterobiako1@gmail.com" className="hover:text-primary transition-colors"><Send size={24} /></a>
       </div>
     </footer>
