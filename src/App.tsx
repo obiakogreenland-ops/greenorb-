@@ -59,7 +59,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-1000 transition-all duration-300 ${scrolled ? 'bg-dark/95 backdrop-blur-xl border-b border-primary/10' : 'bg-dark/80 backdrop-blur-md'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-dark/95 backdrop-blur-xl border-b border-primary/10' : 'bg-dark/80 backdrop-blur-md'}`}>
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-2 text-2xl font-extrabold gradient-text">
           <Bot size={32} className="text-primary" />
@@ -839,7 +839,7 @@ const CTA = () => {
 
 const Footer = () => {
   return (
-    <footer className="py-12 border-t border-light/5 text-center px-6">
+    <footer id="footer" className="py-12 border-t border-light/5 text-center px-6">
       <p className="text-gray-text mb-2">© 2026 GreenOrb Agency. Built with AI for Nigerian businesses.</p>
       <p className="text-xs text-gray-text/50 mb-8">No coding required. Deploy in 48 hours.</p>
       <div className="flex justify-center gap-8 text-gray-text">

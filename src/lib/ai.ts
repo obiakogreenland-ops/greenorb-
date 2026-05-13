@@ -1,11 +1,31 @@
 import { GoogleGenAI } from "@google/genai";
 
-const API_KEY = process.env.GEMINI_API_KEY;
-const ai = API_KEY && API_KEY !== "MY_GEMINI_API_KEY" && API_KEY !== "" ? new GoogleGenAI({ apiKey: API_KEY }) : null;
+// Securely access the API key. 
+// Note: For live sites, set VITE_GEMINI_API_KEY in your environment variables.
+const getApiKey = () => {
+  try {
+    // Check for Vite's client-side environment variable (needs VITE_ prefix for live site)
+    const viteKey = import.meta.env.VITE_GEMINI_API_KEY;
+    if (viteKey && viteKey !== "MY_GEMINI_API_KEY" && viteKey !== "") {
+      return viteKey;
+    }
+    
+    // Fallback to process.env for local development / AI Studio
+    if (typeof process !== 'undefined' && process.env.GEMINI_API_KEY) {
+      return process.env.GEMINI_API_KEY;
+    }
+  } catch (e) {
+    // Silently handle environment access errors
+  }
+  return null;
+};
+
+const API_KEY = getApiKey();
+const ai = API_KEY ? new GoogleGenAI({ apiKey: API_KEY }) : null;
 
 export const generateBotResponse = async (userMessage: string, businessType: string) => {
   if (!ai) {
-    return "I'm currently in demo mode. To activate the AI assistant on your live site, please ensure the GEMINI_API_KEY is correctly set in your Netlify environment variables and redeploy the site.";
+    return "I'm currently in demo mode. To activate the AI assistant on your live site, please set the VITE_GEMINI_API_KEY environment variable in your Netlify dashboard and redeploy.";
   }
 
   try {
@@ -30,13 +50,17 @@ export const generateBotResponse = async (userMessage: string, businessType: str
     Reply in a conversational way.`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.0-flash",
+      model: "gemini-3-flash-preview",
       contents: prompt,
     });
 
     return response.text || "I'm sorry, I couldn't generate a response. Please try again or contact us via WhatsApp!";
-  } catch (error) {
+  } catch (error: any) {
     console.error("Gemini API Error:", error);
-    return "Sorry, I encountered an error. Please try again later or contact us on WhatsApp!";
+    // Return a polite error message instead of throwing to prevent UI crashes on live sites
+    if (error?.message?.includes("API key not valid")) {
+      return "The AI assistant is waiting for a valid API key. Please check your VITE_GEMINI_API_KEY setting.";
+    }
+    return "Sorry, I'm having a bit of trouble connecting right now. Please try again in a moment or reach out to us on WhatsApp!";
   }
 };
